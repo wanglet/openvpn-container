@@ -6,7 +6,7 @@
 3. 启动容器
 
    ```
-   $ docker run -d --restart unless-stopped --privileged --name openvpn --net host -v /etc/openvpn/pki/:/etc/openvpn/server/easy-rsa/pki/ -v /etc/openvpn/server.conf:/etc/openvpn/server/server.conf wanglet/openvpn:2.4.11 --port 22222 --config server.conf --suppress-timestamps --cipher AES-256-GCM --ncp-ciphers AES-256-GCM:AES-128-GCM:AES-256-CBC:AES-128-CBC:BF-CBC
+   $ docker run -d --restart unless-stopped --privileged --name openvpn --net host -v /etc/openvpn/ccd/:/etc/openvpn/server/ccd/ -v /etc/openvpn/ipp.txt:/etc/openvpn/server/ipp.txt -v /etc/openvpn/pki/:/etc/openvpn/server/easy-rsa/pki/ -v /etc/openvpn/server.conf:/etc/openvpn/server/server.conf wanglet/openvpn:2.4.11 --port 22222 --config server.conf --suppress-timestamps --cipher AES-256-GCM --ncp-ciphers AES-256-GCM:AES-128-GCM:AES-256-CBC:AES-128-CBC:BF-CBC
    ```
 
 ## client
