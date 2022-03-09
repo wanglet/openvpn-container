@@ -15,12 +15,15 @@
    ```
 
 ## forward
-笔记本客户端访问服务器客户端局域网内的其它机器时配置:
+服务器客户端配置:
 
 ```
-$ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+# 从openvpn.conf server字段配置的地址访问其它服务器的做snat
+$ iptables -t nat  -A POSTROUTING -s 10.182.255.0/24 -o bond0 -j MASQUERADE
 $ vim /etc/sysctl.conf
 net.ipv4.ip_forward=1
 
 $ sysctl -p
 ```
+
+> 配置后笔记本客户端能直接访问服务器客户端的其它服务器。
